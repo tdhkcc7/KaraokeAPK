@@ -27,7 +27,11 @@ public class SQLDatabaseSource {
 
         //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
 
-        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT, DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR, DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN, DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN, DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT,
+                DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR,
+                DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
+                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN,
+                DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
 
         //Cursor c = db.query(DatabaseHelper.TABLE_SONG, null, null, null, null, null, null);
 
@@ -39,7 +43,8 @@ public class SQLDatabaseSource {
                 + column[11] + ", " + column[12]+ ", " + column[13] + ", "
                 + column[14] +  " From "
                 + DatabaseHelper.TABLE_SONG + " Where "
-                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%'";
+                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%' "
+                + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc";
         Cursor c = db.rawQuery(truyvan, null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
@@ -65,24 +70,32 @@ public class SQLDatabaseSource {
 
             list.add(item);
             c.moveToNext();
-
         }
 
-        //Log.d("KetQua2end", list.get(0).getLyric().toString()); //BUG
-        //Toast.makeText(context, "Đã chay.", Toast.LENGTH_SHORT).show();
         return list;
     }
-
 
     public List<Song> LayDanhSachBaiHat() {
         List<Song> list = new ArrayList<Song>();
 
         //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
 
-        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT, DatabaseHelper.ZROWID,
-                DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR, DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
-                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN, DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE};
-        Cursor c = db.query(DatabaseHelper.TABLE_SONG, column, null, null, null, null, null);
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT,
+                DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR,
+                DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
+                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN,
+                DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
+//        Cursor c = db.query(DatabaseHelper.TABLE_SONG, column, null, null, null, null, DatabaseHelper.ZSLANGUAGE);
+
+        String truyvan = "Select " + column[0] + ", " + column[1] + ", "
+                + column[2] + ", " + column[3] + ", " + column[4] + ", "
+                + column[5] + ", " + column[6]+ ", " + column[7] + ", "
+                + column[8] + ", " + column[9]+ ", " + column[10] + ", "
+                + column[11] + ", " + column[12]+ ", " + column[13] + ", "
+                + column[14] +  " From " + DatabaseHelper.TABLE_SONG
+                + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc";
+        Cursor c = db.rawQuery(truyvan, null);
+
         c.moveToFirst();
         while (!c.isAfterLast()) {
             Song item = new Song();
@@ -108,11 +121,8 @@ public class SQLDatabaseSource {
             c.moveToNext();
 
         }
-
-
        // Toast.makeText(, "Đã có database", Toast.LENGTH_SHORT).show();
-        Log.d("KetQua", list.get(0).getLyric().toString());
-        //Toast.makeText(context, "Đã chay.", Toast.LENGTH_SHORT).show();
+        //Log.d("KetQua", list.get(0).getLyric().toString());
         return list;
     }
 }
