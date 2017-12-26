@@ -1,5 +1,8 @@
 package com.krazy.thomasharris.appkaraoke;
 
+//Kiểm tra đã có database chưa
+//Chưa -> Thêm vào
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,22 +15,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by Thomas Harris on 10/27/2017.
- */
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATASE_NAME= "SongDB.sqlite";
-    public static final String TABLE_SONG = "song";
+    public static final String TABLE_SONG = "ZSONG_ARIRANG";
 
-    public static final String SONG_ID = "_id";
-    public static final String SONG_NAME = "song_name";
-    public static final String SONG_NAME2 = "song_name2";
-    public static final String SONG_LYRIC = "song_lyric";
-    public static final String SONG_LYRIC2 = "song_lyric2";
-    public static final String SONG_ARTIST = "song_artist";
-    public static final String SONG_ARTIST2 = "song_artist2";
+    public static final String Z_PK = "Z_PK";
+    public static final String Z_ENT = "Z_ENT";
+    public static final String Z_OPT = "Z_OPT";
+    public static final String ZROWID = "ZROWID";
+    public static final String ZSVOL = "ZSVOL";
+    public static final String ZSABBR = "ZSABBR";
+    public static final String ZSLANGUAGE = "ZSLANGUAGE";
+    public static final String ZSLYRIC = "ZSLYRIC";
+    public static final String ZSLYRICCLEAN = "ZSLYRICCLEAN";
+    public static final String ZSMANUFACTURE = "ZSMANUFACTURE";
+    public static final String ZSMETA = "ZSMETA";
+    public static final String ZSMETACLEAN = "ZSMETACLEAN";
+    public static final String ZSNAME = "ZSNAME";
+    public static final String ZSNAMECLEAN = "ZSNAMECLEAN";
+    public static final String ZYOUTUBE = "ZYOUTUBE";
+
 
     Context context;
     String duongDanDatabase = "";
@@ -78,7 +86,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void createDatabase() {
         boolean kt = KiemTraDB();
         if (kt) {
-            Log.d("KetNoi", "Đã có database");
             Toast.makeText(context, "Đã có database", Toast.LENGTH_SHORT).show();
         } else {
             this.getWritableDatabase();
@@ -89,7 +96,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean KiemTraDB() {
         SQLiteDatabase kiemTraDB = null;
-//        boolean kiemtraketnoi = false;
         try {
             kiemTraDB = SQLiteDatabase.openDatabase(duongDanDatabase, null, SQLiteDatabase.OPEN_READONLY);
         } catch (Exception e) {

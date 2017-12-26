@@ -1,5 +1,8 @@
 package com.krazy.thomasharris.appkaraoke;
 
+//Hiển Thị danh sách bài hát tìm kiếm
+//Tô màu khi tìm kiếm
+
 import android.content.Context;
 import android.graphics.Color;
 import android.text.SpannableString;
@@ -12,10 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-
-/**
- * Created by Thomas Harris on 10/31/2017.
- */
 
 public class CustomListView extends ArrayAdapter<Song> {
 
@@ -58,29 +57,19 @@ public class CustomListView extends ArrayAdapter<Song> {
         }
 
         Song item = objects.get(position);
-        holder.tvId.setText(item.getId().toString());
+        holder.tvId.setText(item.getRowid().toString());
+        holder.tvTenBaiHat.setText(item.getName().toString());
         holder.tvLoiBaiHat.setText(item.getLyric().toString());
 
         if (MainActivity.chuoiTimKiem != null) {
-            SpannableString textspan = new SpannableString(item.getSongname2());
-            int vitribatdau = LayViTriBatDau(item.getSongname2(), MainActivity.chuoiTimKiem);
+            SpannableString textspan = new SpannableString(item.getNameclean());
+            int vitribatdau = LayViTriBatDau(item.getNameclean(), MainActivity.chuoiTimKiem);
             int vitriketthuc = MainActivity.chuoiTimKiem.length();
-            textspan.setSpan(new BackgroundColorSpan(Color.RED), vitribatdau,vitribatdau + vitriketthuc, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE );
+            textspan.setSpan(new BackgroundColorSpan(Color.WHITE), vitribatdau,vitribatdau + vitriketthuc, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE );
             holder.tvTenBaiHat.setText(textspan);
         } else {
-            holder.tvTenBaiHat.setText(item.getSongname());
+            holder.tvTenBaiHat.setText(item.getName());
         }
-
-//        View view = View.inflate(context, resource, null);
-//        TextView tvId = (TextView) view.findViewById(R.id.tvID);
-//        TextView tvTenBaiHat = (TextView) view.findViewById(R.id.tvTenBaiHat);
-//        TextView tvLoi = (TextView) view.findViewById(R.id.tvLoi);
-//
-//        Song item = objects.get(position);
-//        tvId.setText(item.getId().toString());
-//        tvTenBaiHat.setText(item.getSongname().toString());
-//        tvLoi.setText(item.getLyric().toString());
-
           return convertView;
     }
 }

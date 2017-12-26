@@ -1,5 +1,7 @@
 package com.krazy.thomasharris.appkaraoke;
 
+//Hàm main
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         MenuItem item = menu.findItem(R.id.search);
         SearchView serachView = (SearchView) item.getActionView();
         serachView.setOnQueryTextListener(this);
@@ -57,12 +59,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     @Override
-    public boolean onQueryTextChange(String s) {
-        //list = db.LayDanhSachBaiHatTheoMa(s.toLowerCase().toString());
-        list = db.LayDanhSachBaiHatTheoMa(s);
+    public boolean onQueryTextChange(String tenbaihat) {
+
+//        list = db.LayDanhSachBaiHatTheoMa(tenbaihat.toLowerCase().toString());
+        list = db.LayDanhSachBaiHatTheoMa(tenbaihat);
+
         setAdapterListView(list);
         adapter.notifyDataSetChanged();
-        chuoiTimKiem = s;
+        chuoiTimKiem = tenbaihat;
         return true;
     }
 }

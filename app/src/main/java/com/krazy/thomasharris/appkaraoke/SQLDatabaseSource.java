@@ -1,5 +1,7 @@
 package com.krazy.thomasharris.appkaraoke;
 
+//Kết nối truy vấn cơ sở dữ liêu sqlite
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,10 +10,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Thomas Harris on 10/30/2017.
- */
 
 public class SQLDatabaseSource {
     SQLiteDatabase db;
@@ -27,29 +25,50 @@ public class SQLDatabaseSource {
     public List<Song> LayDanhSachBaiHatTheoMa(String tenbaihat) {
         List<Song> list = new ArrayList<Song>();
 
-        String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
+        //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
+
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT, DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR, DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN, DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN, DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
+
         //Cursor c = db.query(DatabaseHelper.TABLE_SONG, null, null, null, null, null, null);
 
         //select _id, song_name, song_name2, song_lyric From song where song_name2 like '% tenbaihat %'
-        String truyvan = "Select " + column[0] + " , " + column[1] + " , "
-                + column[2] + " , " + column[3] + " From "
+        String truyvan = "Select " + column[0] + ", " + column[1] + ", "
+                + column[2] + ", " + column[3] + ", " + column[4] + ", "
+                + column[5] + ", " + column[6]+ ", " + column[7] + ", "
+                + column[8] + ", " + column[9]+ ", " + column[10] + ", "
+                + column[11] + ", " + column[12]+ ", " + column[13] + ", "
+                + column[14] +  " From "
                 + DatabaseHelper.TABLE_SONG + " Where "
-                + DatabaseHelper.SONG_NAME2 + " LIKE '%" + tenbaihat.toLowerCase() + "%'";
+                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%'";
         Cursor c = db.rawQuery(truyvan, null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
             Song item = new Song();
-            item.setId(c.getString(0));
-            item.setSongname((c.getString(1)));
-            item.setSongname2(c.getString(2));
-            item.setLyric(c.getString(3));
+            item.setPk(c.getString(0));
+            item.setEnt((c.getString(1)));
+            item.setOpt(c.getString(2));
+            item.setRowid(c.getString(3));
+
+            item.setVol(c.getString(4));
+            item.setAbbr((c.getString(5)));
+            item.setLanguage(c.getString(6));
+            item.setLyric(c.getString(7));
+            item.setLyricclean(c.getString(8));
+
+            item.setManufacture((c.getString(9)));
+            item.setMeta(c.getString(10));
+            item.setMetaclean(c.getString(11));
+            item.setName(c.getString(12));
+            item.setNameclean((c.getString(13)));
+            item.setYoutube(c.getString(14));
+
 
             list.add(item);
             c.moveToNext();
 
         }
 
-        //Log.d("KetQua", list.get(0).getLyric().toString()); BUG
+        //Log.d("KetQua2end", list.get(0).getLyric().toString()); //BUG
         //Toast.makeText(context, "Đã chay.", Toast.LENGTH_SHORT).show();
         return list;
     }
@@ -58,15 +77,32 @@ public class SQLDatabaseSource {
     public List<Song> LayDanhSachBaiHat() {
         List<Song> list = new ArrayList<Song>();
 
-        String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
-        Cursor c = db.query(DatabaseHelper.TABLE_SONG, null, null, null, null, null, null);
+        //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
+
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT, DatabaseHelper.ZROWID,
+                DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR, DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
+                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN, DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE};
+        Cursor c = db.query(DatabaseHelper.TABLE_SONG, column, null, null, null, null, null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
             Song item = new Song();
-            item.setId(c.getString(0));
-            item.setSongname((c.getString(1)));
-            item.setSongname2(c.getString(2));
-            item.setLyric(c.getString(3));
+            item.setPk(c.getString(0));
+            item.setEnt((c.getString(1)));
+            item.setOpt(c.getString(2));
+            item.setRowid(c.getString(3));
+
+            item.setVol(c.getString(4));
+            item.setAbbr((c.getString(5)));
+            item.setLanguage(c.getString(6));
+            item.setLyric(c.getString(7));
+            item.setLyricclean(c.getString(8));
+
+            item.setManufacture((c.getString(9)));
+            item.setMeta(c.getString(10));
+            item.setMetaclean(c.getString(11));
+            item.setName(c.getString(12));
+            item.setNameclean((c.getString(13)));
+            item.setYoutube(c.getString(14));
 
             list.add(item);
             c.moveToNext();
