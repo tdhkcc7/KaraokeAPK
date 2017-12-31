@@ -2,7 +2,7 @@ package com.krazy.thomasharris.appkaraoke;
 
 //Kiểm tra đã có database chưa
 //Chưa -> Thêm vào
-//fix
+//fix2
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
