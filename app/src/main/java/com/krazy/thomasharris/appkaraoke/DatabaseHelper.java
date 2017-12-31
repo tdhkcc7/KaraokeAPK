@@ -2,6 +2,7 @@ package com.krazy.thomasharris.appkaraoke;
 
 //Kiểm tra đã có database chưa
 //Chưa -> Thêm vào
+//fix
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATASE_NAME= "SongDB.sqlite";
     public static final String TABLE_SONG = "ZSONG_ARIRANG";
+    public static final String TABLE_CALIFORNIA = "ZSONG_CALIFORNIA";
 
     public static final String Z_PK = "Z_PK";
     public static final String Z_ENT = "Z_ENT";

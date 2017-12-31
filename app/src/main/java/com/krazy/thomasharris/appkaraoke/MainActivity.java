@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     @Override
+    //Sự kiện: thay đổi trên khung tìm kiếm -> hiển thị bài hát cần tìm kiếm
     public boolean onQueryTextChange(String tenbaihat) {
 
 //        list = db.LayDanhSachBaiHatTheoMa(tenbaihat.toLowerCase().toString());
