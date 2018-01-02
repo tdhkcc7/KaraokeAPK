@@ -1,6 +1,6 @@
 package com.krazy.thomasharris.appkaraoke;
 
-//Hàm main
+//Hàm maindsdf
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

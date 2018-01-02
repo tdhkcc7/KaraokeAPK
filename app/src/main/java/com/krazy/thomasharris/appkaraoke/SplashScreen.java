@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
                 .withBeforeLogoText("dddddddd")
                 .withAfterLogoText("uuuuuuu");
 
-
+        config.getAfterLogoTextView().setTextSize(30);
         config.getHeaderTextView().setTextColor(Color.BLACK);
         config.getFooterTextView().setTextColor(Color.BLACK);
         config.getBeforeLogoTextView().setTextColor(Color.BLACK);
