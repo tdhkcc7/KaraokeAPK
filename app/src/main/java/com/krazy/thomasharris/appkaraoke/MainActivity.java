@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     List<Song> list;
     ListView lvHienThi;
     CustomListView adapter;
-    String _database;
+    String _database = "ZSONG_ARIRANG";
 
     public static String chuoiTimKiem = "";
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         lvHienThi = (ListView) findViewById(R.id.lvHienThi);
         list = new ArrayList<Song>();
         db = new SQLDatabaseSource(this);
-        list = db.LayDanhSachBaiHat();
+        list = db.LayDanhSachBaiHat(_database);
         MenuTopBar();
         setAdapterListView(list);
     }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         imgda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialogDatabase = new Dialog(MainActivity.this);
+                final Dialog dialogDatabase = new Dialog(MainActivity.this);
                 dialogDatabase.setTitle("Chọn đầu karaoke");
                 dialogDatabase.setCancelable(true);
                 dialogDatabase.setContentView(R.layout.custom_dialog_database);
@@ -55,7 +55,44 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 TextView tvCalifornia = (TextView) dialogDatabase.findViewById(R.id.california);
                 TextView tvVietKTV = (TextView) dialogDatabase.findViewById(R.id.vietktv);
 
+                tvAriang.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _database = "ZSONG_ARIRANG";
+                        list = db.LayDanhSachBaiHat(_database);
+                        dialogDatabase.cancel();
+                    }
+                });
 
+                tvMusicCore.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _database = "ZSONG_MUSICCORE";
+                        list = db.LayDanhSachBaiHat(_database);
+                        dialogDatabase.cancel();
+                    }
+                });
+
+                tvCalifornia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _database = "ZSONG_CALIFORNIA";
+                        list = db.LayDanhSachBaiHat(_database);
+                        dialogDatabase.cancel();
+                    }
+                });
+
+                tvVietKTV.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _database = "ZSONG_VIETKTV";
+                        list = db.LayDanhSachBaiHat(_database);
+                        dialogDatabase.cancel();
+                    }
+                });
+
+                dialogDatabase.show();
+                setAdapterListView(list);
 
             }
         });
