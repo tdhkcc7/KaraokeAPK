@@ -39,7 +39,34 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         db = new SQLDatabaseSource(this);
         list = db.LayDanhSachBaiHat(_dau_karaoke);
         MenuTopBar();
+        MenuBottomBar();
         setAdapterListView(list);
+    }
+
+    public void MenuBottomBar() {
+        final Button btnList = (Button) findViewById(R.id.btnList);
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Danh sach", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final Button btnHatOline = (Button) findViewById(R.id.btnHatOnline);
+        btnHatOline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Hat Online", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final Button btnfavorite = (Button) findViewById(R.id.btnFavorite);
+        btnfavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "My favorite", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void MenuTopBar(){
