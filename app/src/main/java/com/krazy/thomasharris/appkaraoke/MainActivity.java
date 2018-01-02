@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     List<Song> list;
     ListView lvHienThi;
     CustomListView adapter;
-    String _database = "ZSONG_ARIRANG";
+    String _dau_karaoke = "ZSONG_ARIRANG";
 
     public static String chuoiTimKiem = "";
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         lvHienThi = (ListView) findViewById(R.id.lvHienThi);
         list = new ArrayList<Song>();
         db = new SQLDatabaseSource(this);
-        list = db.LayDanhSachBaiHat(_database);
+        list = db.LayDanhSachBaiHat(_dau_karaoke);
         MenuTopBar();
         setAdapterListView(list);
     }
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tvAriang.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        _database = "ZSONG_ARIRANG";
-                        list = db.LayDanhSachBaiHat(_database);
+                        _dau_karaoke = "ZSONG_ARIRANG";
+                        list = db.LayDanhSachBaiHat(_dau_karaoke);
                         dialogDatabase.cancel();
                     }
                 });
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tvMusicCore.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        _database = "ZSONG_MUSICCORE";
-                        list = db.LayDanhSachBaiHat(_database);
+                        _dau_karaoke = "ZSONG_MUSICCORE";
+                        list = db.LayDanhSachBaiHat(_dau_karaoke);
                         dialogDatabase.cancel();
                     }
                 });
@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tvCalifornia.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        _database = "ZSONG_CALIFORNIA";
-                        list = db.LayDanhSachBaiHat(_database);
+                        _dau_karaoke = "ZSONG_CALIFORNIA";
+                        list = db.LayDanhSachBaiHat(_dau_karaoke);
                         dialogDatabase.cancel();
                     }
                 });
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tvVietKTV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        _database = "ZSONG_VIETKTV";
-                        list = db.LayDanhSachBaiHat(_database);
+                        _dau_karaoke = "ZSONG_VIETKTV";
+                        list = db.LayDanhSachBaiHat(_dau_karaoke);
                         dialogDatabase.cancel();
                     }
                 });
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public boolean onQueryTextChange(String tenbaihat) {
 
 //        list = db.LayDanhSachBaiHatTheoMa(tenbaihat.toLowerCase().toString());
-        list = db.LayDanhSachBaiHatTheoMa(tenbaihat);
+        list = db.LayDanhSachBaiHatTheoMa(_dau_karaoke, tenbaihat);
 
         setAdapterListView(list);
         adapter.notifyDataSetChanged();

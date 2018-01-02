@@ -22,7 +22,7 @@ public class SQLDatabaseSource {
         db = helper.openDatabase();
     }
 
-    public List<Song> LayDanhSachBaiHatTheoMa(String tenbaihat) {
+    public List<Song> LayDanhSachBaiHatTheoMa(String dau_karaoke, String tenbaihat) {
         List<Song> list = new ArrayList<Song>();
 
         //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
@@ -42,7 +42,7 @@ public class SQLDatabaseSource {
                 + column[8] + ", " + column[9]+ ", " + column[10] + ", "
                 + column[11] + ", " + column[12]+ ", " + column[13] + ", "
                 + column[14] +  " From "
-                + DatabaseHelper.TABLE_SONG + " Where "
+                + dau_karaoke + " Where "
                 + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%' "
                 + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc";
         Cursor c = db.rawQuery(truyvan, null);
@@ -75,7 +75,7 @@ public class SQLDatabaseSource {
         return list;
     }
 
-    public List<Song> LayDanhSachBaiHat(String database) {
+    public List<Song> LayDanhSachBaiHat(String dau_karaoke) {
         List<Song> list = new ArrayList<Song>();
 
         //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
@@ -92,7 +92,7 @@ public class SQLDatabaseSource {
                 + column[5] + ", " + column[6]+ ", " + column[7] + ", "
                 + column[8] + ", " + column[9]+ ", " + column[10] + ", "
                 + column[11] + ", " + column[12]+ ", " + column[13] + ", "
-                + column[14] +  " From " + database
+                + column[14] +  " From " + dau_karaoke
                 + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc";
         Cursor c = db.rawQuery(truyvan, null);
 
