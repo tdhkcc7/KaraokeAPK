@@ -165,4 +165,44 @@ public class SQLDatabaseSource {
         }
         return list;
     }
+
+    public List<Song> LayDanhSachBaiHatTheoNgonNgu(String dau_karaoke, String language) {
+        List<Song> list = new ArrayList<Song>();
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT,
+                DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR,
+                DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
+                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN,
+                DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
+        String truyvan = "Select " + column[0] + ", " + column[1] + ", "
+                + column[2] + ", " + column[3] + ", " + column[4] + ", "
+                + column[5] + ", " + column[6]+ ", " + column[7] + ", "
+                + column[8] + ", " + column[9]+ ", " + column[10] + ", "
+                + column[11] + ", " + column[12]+ ", " + column[13] + ", "
+                + column[14] +  " From " + dau_karaoke + " Where ZSLANGUAGE = '" + language +"' "
+                + " Order by " + DatabaseHelper.ZSNAME + " asc";
+        Cursor c = db.rawQuery(truyvan, null);
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            Song item = new Song();
+            item.setPk(c.getString(0));
+            item.setEnt((c.getString(1)));
+            item.setOpt(c.getString(2));
+            item.setRowid(c.getString(3));
+            item.setVol(c.getString(4));
+            item.setAbbr((c.getString(5)));
+            item.setLanguage(c.getString(6));
+            item.setLyric(c.getString(7));
+            item.setLyricclean(c.getString(8));
+            item.setManufacture((c.getString(9)));
+            item.setMeta(c.getString(10));
+            item.setMetaclean(c.getString(11));
+            item.setName(c.getString(12));
+            item.setNameclean((c.getString(13)));
+            item.setYoutube(c.getString(14));
+            list.add(item);
+            c.moveToNext();
+        }
+        return list;
+    }
 }

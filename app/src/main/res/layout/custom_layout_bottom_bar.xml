@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:backgroundTint="@color/lightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:textSize="16dp"
+                android:text="Danh Sách"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
+                android:id="@+id/btnList"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <Button
+                android:textSize="16dp"
+                android:text="Hát Online"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
+                android:id="@+id/btnHatOnline"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <Button
+                android:textSize="16dp"
+                android:text="Yêu Thích"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
+                android:id="@+id/btnYeuThich"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

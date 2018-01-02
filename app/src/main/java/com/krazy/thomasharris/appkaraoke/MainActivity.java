@@ -169,7 +169,103 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     }
                 });
 
+                tvVol56.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "54";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 56");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
 
+                tvVol55.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "53";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 55");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol54.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "52";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 54");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol53.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "51";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 53");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+                tvVol52.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "50";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 53");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol51.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "49";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 52");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol50.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "48";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 51");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvNhacAnh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "en";
+                        list = db.LayDanhSachBaiHatTheoNgonNgu(_dau_karaoke, _vol);
+                        btnVol.setText("Nhạc Anh");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvNhacViet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "vn";
+                        list = db.LayDanhSachBaiHatTheoNgonNgu(_dau_karaoke, _vol);
+                        btnVol.setText("Nhạc Việt");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
                 dialogVol.show();
             }
         });
