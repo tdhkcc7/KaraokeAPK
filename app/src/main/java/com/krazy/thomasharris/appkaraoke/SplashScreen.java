@@ -17,20 +17,27 @@ public class SplashScreen extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
-                .withBackgroundColor(Color.parseColor("#ffffff"))
-                .withLogo(R.mipmap.ic_launcher)
-                .withHeaderText("abcccccc")
-                .withFooterText("aaaaaaa")
-                .withBeforeLogoText("dddddddd")
-                .withAfterLogoText("uuuuuuu");
-
-        config.getAfterLogoTextView().setTextSize(30);
-        config.getHeaderTextView().setTextColor(Color.BLACK);
-        config.getFooterTextView().setTextColor(Color.BLACK);
-        config.getBeforeLogoTextView().setTextColor(Color.BLACK);
-        config.getAfterLogoTextView().setTextColor(Color.BLACK);
+                .withBackgroundResource(R.drawable.intro);
 
         View view  = config.create();
         setContentView(view);
     }
 }
+
+//        EasySplashScreen config = new EasySplashScreen( SplashScreen.this)
+//                .withFullScreen()
+//                .withTargetActivity(MainActivity.class)
+//                .withSplashTimeOut(3000)
+//                .withBackgroundColor(Color.parseColor("#ffffff"))
+//                .withBackgroundResource(R.drawable.intro)
+//                .withLogo(R.mipmap.ic_launcher)
+//                .withHeaderText("Hello")
+//                .withFooterText("Verson 1.0")
+//                .withBeforeLogoText("Tra cứu mã số Karaoke")
+//                .withAfterLogoText("CKN");
+//
+//        config.getAfterLogoTextView().setTextSize(30);
+//        config.getHeaderTextView().setTextColor(Color.BLACK);
+//        config.getFooterTextView().setTextColor(Color.BLACK);
+//        config.getBeforeLogoTextView().setTextColor(Color.BLACK);
+//        config.getAfterLogoTextView().setTextColor(Color.BLACK);
