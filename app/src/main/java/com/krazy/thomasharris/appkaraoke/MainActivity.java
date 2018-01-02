@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     ListView lvHienThi;
     CustomListView adapter;
     String _dau_karaoke = "ZSONG_ARIRANG";
+    String _vol = "vol60";
 
     public static String chuoiTimKiem = "";
 
@@ -42,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void MenuTopBar(){
-        final ImageView imgda = (ImageView) findViewById(R.id.imgDatabase);
-        imgda.setOnClickListener(new View.OnClickListener() {
+        final Button btnData = (Button) findViewById(R.id.btnDatabase);
+        btnData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Dialog dialogDatabase = new Dialog(MainActivity.this);
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     public void onClick(View v) {
                         _dau_karaoke = "ZSONG_ARIRANG";
                         list = db.LayDanhSachBaiHat(_dau_karaoke);
+                        btnData.setText("Arirang");
+                        setAdapterListView(list);
                         dialogDatabase.cancel();
                     }
                 });
@@ -69,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     public void onClick(View v) {
                         _dau_karaoke = "ZSONG_MUSICCORE";
                         list = db.LayDanhSachBaiHat(_dau_karaoke);
+                        btnData.setText("Music Core");
+                        setAdapterListView(list);
                         dialogDatabase.cancel();
                     }
                 });
@@ -78,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     public void onClick(View v) {
                         _dau_karaoke = "ZSONG_CALIFORNIA";
                         list = db.LayDanhSachBaiHat(_dau_karaoke);
+                        btnData.setText("California");
+                        setAdapterListView(list);
                         dialogDatabase.cancel();
                     }
                 });
@@ -87,38 +95,91 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     public void onClick(View v) {
                         _dau_karaoke = "ZSONG_VIETKTV";
                         list = db.LayDanhSachBaiHat(_dau_karaoke);
+                        btnData.setText("VietKTV");
+                        setAdapterListView(list);
                         dialogDatabase.cancel();
                     }
                 });
 
                 dialogDatabase.show();
-                setAdapterListView(list);
-
             }
         });
 
-        ImageView imgVol = (ImageView) findViewById(R.id.imgVol);
-        imgVol.setOnClickListener(new View.OnClickListener() {
+        final Button btnVol = (Button) findViewById(R.id.btnVol);
+        btnVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Dialog dialogVol = new Dialog(MainActivity.this);
+                dialogVol.setTitle("Chọn đầu karaoke");
+                dialogVol.setCancelable(true);
+                dialogVol.setContentView(R.layout.custom_dialog_vol);
+                TextView tvVol60 = (TextView)    dialogVol.findViewById(R.id.vol60);
+                TextView tvVol59 = (TextView)    dialogVol.findViewById(R.id.vol59);
+                TextView tvVol58 = (TextView)    dialogVol.findViewById(R.id.vol58);
+                TextView tvVol57 = (TextView)    dialogVol.findViewById(R.id.vol57);
+                TextView tvVol56 = (TextView)    dialogVol.findViewById(R.id.vol56);
+                TextView tvVol55 = (TextView)    dialogVol.findViewById(R.id.vol55);
+                TextView tvVol54 = (TextView)    dialogVol.findViewById(R.id.vol54);
+                TextView tvVol53 = (TextView)    dialogVol.findViewById(R.id.vol53);
+                TextView tvVol52 = (TextView)    dialogVol.findViewById(R.id.vol52);
+                TextView tvVol51 = (TextView)    dialogVol.findViewById(R.id.vol51);
+                TextView tvVol50 = (TextView)    dialogVol.findViewById(R.id.vol50);
+                TextView tvNhacAnh = (TextView)  dialogVol.findViewById(R.id.nhacanh);
+                TextView tvNhacViet = (TextView) dialogVol.findViewById(R.id.nhacviet);
 
-                Toast.makeText(getApplicationContext(),"vol",Toast.LENGTH_SHORT).show();
+                tvVol60.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "58";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 60");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol59.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "57";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 59");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+                tvVol58.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "56";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 58");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+                tvVol57.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        _vol = "55";
+                        list = db.LayDanhSachBaiHatTheoVol(_dau_karaoke, _vol);
+                        btnVol.setText("Vol 57");
+                        setAdapterListView(list);
+                        dialogVol.cancel();
+                    }
+                });
+
+
+                dialogVol.show();
             }
         });
 
-        ImageView imgAll = (ImageView) findViewById(R.id.imgAll);
-        imgAll.setOnClickListener(new View.OnClickListener() {
+        Button btnAll = (Button) findViewById(R.id.btnAll);
+        btnAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "all", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        ImageView imgSearch = (ImageView) findViewById(R.id.imgSearch);
-        imgSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -3,43 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp">
         <LinearLayout
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="3"
+            android:backgroundTint="@color/lightBlue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginLeft="5dp"
-                android:id="@+id/imgDatabase"
+            android:layout_height="match_parent">
+            <Button
+                android:textSize="16dp"
+                android:text="Arirang"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
+                android:id="@+id/btnDatabase"
                 android:layout_weight="1"
-                android:src="@drawable/icon_database"
+                android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <ImageView
-                android:layout_marginLeft="5dp"
-                android:id="@+id/imgVol"
-                android:src="@drawable/icon_vol"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <ImageView
-                android:layout_marginLeft="5dp"
-                android:id="@+id/imgAll"
-                android:src="@drawable/icon_all"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <ImageView
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+            <Button
+                android:textSize="16dp"
+                android:text="Vol 60"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:id="@+id/imgSearch"
-                android:src="@drawable/icon_search"
+                android:id="@+id/btnVol"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <Button
+                android:textSize="16dp"
+                android:text="Tất cả chữ cái"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="@color/white"
+                android:layout_marginRight="5dp"
+                android:id="@+id/btnAll"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
