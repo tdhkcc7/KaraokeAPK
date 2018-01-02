@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -30,7 +32,43 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         list = new ArrayList<Song>();
         db = new SQLDatabaseSource(this);
         list = db.LayDanhSachBaiHat();
+        MenuTopBar();
         setAdapterListView(list);
+    }
+
+    public void MenuTopBar(){
+        ImageView imgda = (ImageView) findViewById(R.id.imgDatabase);
+        imgda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"database",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView imgVol = (ImageView) findViewById(R.id.imgVol);
+        imgVol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"vol",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView imgAll = (ImageView) findViewById(R.id.imgAll);
+        imgAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "all", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView imgSearch = (ImageView) findViewById(R.id.imgSearch);
+        imgSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setAdapterListView(List<Song> list) {
