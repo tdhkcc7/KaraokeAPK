@@ -2,6 +2,7 @@ package com.krazy.thomasharris.appkaraoke;
 
 //Hàm main
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,11 +38,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     public void MenuTopBar(){
-        ImageView imgda = (ImageView) findViewById(R.id.imgDatabase);
+        final ImageView imgda = (ImageView) findViewById(R.id.imgDatabase);
         imgda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"database",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Chọn đầu karaoke");
+                
+
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
 
