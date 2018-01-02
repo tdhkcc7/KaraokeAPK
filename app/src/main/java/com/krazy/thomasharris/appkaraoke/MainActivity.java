@@ -1,7 +1,8 @@
 package com.krazy.thomasharris.appkaraoke;
 
 //Hàm main
-
+//test
+import android.app.Dialog;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     List<Song> list;
     ListView lvHienThi;
     CustomListView adapter;
+    String _database;
+
     public static String chuoiTimKiem = "";
 
     @Override
@@ -42,14 +46,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         imgda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Chọn đầu karaoke");
+                Dialog dialogDatabase = new Dialog(MainActivity.this);
+                dialogDatabase.setTitle("Chọn đầu karaoke");
+                dialogDatabase.setCancelable(true);
+                dialogDatabase.setContentView(R.layout.custom_dialog_database);
+                TextView tvAriang = (TextView) dialogDatabase.findViewById(R.id.arirang);
+                TextView tvMusicCore = (TextView) dialogDatabase.findViewById(R.id.musiccore);
+                TextView tvCalifornia = (TextView) dialogDatabase.findViewById(R.id.california);
+                TextView tvVietKTV = (TextView) dialogDatabase.findViewById(R.id.vietktv);
 
 
-
-
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
 
             }
         });
