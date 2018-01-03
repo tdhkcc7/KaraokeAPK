@@ -1,5 +1,6 @@
 package com.krazy.thomasharris.appkaraoke;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.widget.Button;
 
 import java.io.File;
 import java.io.IOException;
+
+import static com.krazy.thomasharris.appkaraoke.MainActivity._dau_karaoke;
+import static com.krazy.thomasharris.appkaraoke.MainActivity.list;
 
 public class RecordActivity extends AppCompatActivity {
 
@@ -22,6 +26,16 @@ public class RecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
+
+        final Button btnList = (Button) findViewById(R.id.btnList);
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
+            }
+        });
 
         OUTPUT_FILE = Environment.getExternalStorageState();
 

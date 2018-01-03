@@ -20,13 +20,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    SQLDatabaseSource db;
-    List<Song> list;
-    ListView lvHienThi;
-    CustomListView adapter;
+    public static SQLDatabaseSource db;
+    public static List<Song> list;
+    public static ListView lvHienThi;
+    public static CustomListView adapter;
     public static String _dau_karaoke = "ZSONG_ARIRANG";
-    String _vol = "vol60";
-    String chuCai="A";
+    public static String _vol = "vol60";
+    public static String chuCai="A";
 
     public static String chuoiTimKiem = "";
 
