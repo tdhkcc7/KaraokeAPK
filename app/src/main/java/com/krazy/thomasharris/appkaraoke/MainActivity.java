@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onClick(View v) {
 //                finish();
-//                overridePendingTransition(0, 0);
+                overridePendingTransition(0, 0);
                 startActivity(getIntent());
-//                overridePendingTransition(0, 0);
+                overridePendingTransition(0, 0);
             }
         });
 
