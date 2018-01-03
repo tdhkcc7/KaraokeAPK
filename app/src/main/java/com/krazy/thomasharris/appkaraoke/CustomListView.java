@@ -102,15 +102,15 @@ public class CustomListView extends ArrayAdapter<Song> {
             }
         });
 
-        if (MainActivity.chuoiTimKiem != null) {
-            SpannableString textspan = new SpannableString(item.getNameclean());
-            int vitribatdau = LayViTriBatDau(item.getNameclean(), MainActivity.chuoiTimKiem);
-            int vitriketthuc = MainActivity.chuoiTimKiem.length();
-            textspan.setSpan(new BackgroundColorSpan(Color.WHITE), vitribatdau,vitribatdau + vitriketthuc, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE );
-            holder.tvTenBaiHat.setText(textspan);
-        } else {
-            holder.tvTenBaiHat.setText(item.getName());
-        }
+//        if (MainActivity.chuoiTimKiem != null) {
+//            SpannableString textspan = new SpannableString(item.getNameclean());
+//            int vitribatdau = LayViTriBatDau(item.getNameclean(), MainActivity.chuoiTimKiem);
+//            int vitriketthuc = MainActivity.chuoiTimKiem.length();
+//            textspan.setSpan(new BackgroundColorSpan(Color.WHITE), vitribatdau,vitribatdau + vitriketthuc, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE );
+//            holder.tvTenBaiHat.setText(textspan);
+//        } else {
+//            holder.tvTenBaiHat.setText(item.getName());
+//        }
         return convertView;
     }
 }

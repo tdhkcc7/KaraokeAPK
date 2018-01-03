@@ -34,19 +34,11 @@ public class SQLDatabaseSource {
                 DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN,
                 DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
 
-        //Cursor c = db.query(DatabaseHelper.TABLE_SONG, null, null, null, null, null, null);
-
-        //select _id, song_name, song_name2, song_lyric From song where song_name2 like '% tenbaihat %'
-        String truyvan = "Select " + column[0] + ", " + column[1] + ", "
-                + column[2] + ", " + column[3] + ", " + column[4] + ", "
-                + column[5] + ", " + column[6]+ ", " + column[7] + ", "
-                + column[8] + ", " + column[9]+ ", " + column[10] + ", "
-                + column[11] + ", " + column[12]+ ", " + column[13] + ", "
-                + column[14] +  " From "
-                + dau_karaoke + " Where "
-                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%' " + " Or " + DatabaseHelper.ZSABBR
-                + " LIKE '%" + tenbaihat.toLowerCase() + "%' "
-                + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc";
+        String truyvan = "Select * From "
+                + dau_karaoke + " Where (("
+                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZSABBR
+                + " LIKE '%" + tenbaihat.toLowerCase() + "%' ))"
+                + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc ";
         Cursor c = db.rawQuery(truyvan, null);
 
         c.moveToFirst();
@@ -303,36 +295,6 @@ public class SQLDatabaseSource {
         ContentValues cv=new ContentValues();
         cv.put(DatabaseHelper.Z_OPT, state);
         db.update(dau_karaoke, cv, DatabaseHelper.Z_PK + " = " +Primary, null);
-    }
-
-
-
-    public  static  List<Song> CapNhat(String dau_karaoke, String Primary) {
-        List<Song> list = new ArrayList<Song>();
-        Cursor c = db.rawQuery("UPDATE " + dau_karaoke + " SET " + DatabaseHelper.Z_OPT + " = 0 where "
-                + DatabaseHelper.Z_PK + " = " + Primary, null);
-        c.moveToFirst();
-        while (!c.isAfterLast()) {
-            Song item = new Song();
-            item.setPk(c.getString(0));
-            item.setEnt((c.getString(1)));
-            item.setOpt(c.getString(2));
-            item.setRowid(c.getString(3));
-            item.setVol(c.getString(4));
-            item.setAbbr((c.getString(5)));
-            item.setLanguage(c.getString(6));
-            item.setLyric(c.getString(7));
-            item.setLyricclean(c.getString(8));
-            item.setManufacture((c.getString(9)));
-            item.setMeta(c.getString(10));
-            item.setMetaclean(c.getString(11));
-            item.setName(c.getString(12));
-            item.setNameclean((c.getString(13)));
-            item.setYoutube(c.getString(14));
-            list.add(item);
-            c.moveToNext();
-        }
-        return list;
     }
 }
 
