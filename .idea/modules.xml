@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AppKaraoke-master.iml" filepath="$PROJECT_DIR$/AppKaraoke-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/KaraokeAPK.iml" filepath="$PROJECT_DIR$/KaraokeAPK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
