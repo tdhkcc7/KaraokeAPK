@@ -20,7 +20,7 @@
                 android:textStyle="bold"
                 android:textSize="30dp"
                 android:gravity="center"
-                android:text="Tat ca chu cai"
+                android:text="Tìm theo chữ cái"
                 android:id="@+id/AllChuCai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

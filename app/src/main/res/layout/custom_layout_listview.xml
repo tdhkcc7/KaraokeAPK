@@ -11,6 +11,7 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
         <LinearLayout
+            android:layout_marginRight="5dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -32,26 +33,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_weight="9"
             android:orientation="vertical">
-
             <TextView
+                android:layout_marginTop="2dp"
                 android:id="@+id/tvTenBaiHat"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
+                android:layout_height="23dp"
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="20sp" />
-
             <TextView
-                android:id="@+id/tvLoi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/tvCasi"
                 android:text="TextView"
                 android:textColor="#000000"
-                android:textSize="15sp" />
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <TextView
+                android:textStyle="italic"
+                android:id="@+id/tvLoi"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

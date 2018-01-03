@@ -35,7 +35,7 @@ public class CustomListView extends ArrayAdapter<Song> {
     }
 
     private class ViewHolder {
-        TextView tvId, tvTenBaiHat, tvLoiBaiHat;
+        TextView tvId, tvTenBaiHat, tvLoiBaiHat, tvCasi;
         ImageView imgFavorite;
     }
 
@@ -55,6 +55,7 @@ public class CustomListView extends ArrayAdapter<Song> {
             holder.tvId         = convertView.findViewById(R.id.tvID);
             holder.tvTenBaiHat  = convertView.findViewById(R.id.tvTenBaiHat);
             holder.tvLoiBaiHat  = convertView.findViewById(R.id.tvLoi);
+            holder.tvCasi       = convertView.findViewById(R.id.tvCasi);
             holder.imgFavorite =convertView.findViewById(R.id.imgFav);
             convertView.setTag(holder);
         } else {
@@ -65,6 +66,7 @@ public class CustomListView extends ArrayAdapter<Song> {
         holder.tvId.setText(item.getRowid().toString());
         holder.tvTenBaiHat.setText(item.getName().toString());
         holder.tvLoiBaiHat.setText(item.getLyric().toString());
+        holder.tvCasi.setText(item.getMeta().toString());
         // if(item.getOpt().toStrinsg()=="1")
         // holder.imgFavorite.setImageResource(R.drawable.heart);
         //if(item.getOpt().toString())
@@ -90,14 +92,14 @@ public class CustomListView extends ArrayAdapter<Song> {
                     item.setOpt("0");
                     SQLDatabaseSource.CapNhat2(MainActivity._dau_karaoke, item.getPk(), "0");
                     holder.imgFavorite.setImageResource(R.drawable.icon_redheart);
-                    Toast.makeText(getContext(), "Đã lưu bài hát "+ item.getName() + " vào danh sách ưa thích", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Đã lưu bài hát "+ item.getName() + " vào danh sách ưa thích", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     item.setOpt("1");
                     SQLDatabaseSource.CapNhat2(MainActivity._dau_karaoke, item.getPk(), "1");
                     holder.imgFavorite.setImageResource(R.drawable.icon_heart);
-                    Toast.makeText(getContext(), "Đã loại bài hát "+ item.getName() + " khỏi danh sách ưa thích", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Đã loại bài hát "+ item.getName() + " khỏi danh sách ưa thích", Toast.LENGTH_SHORT).show();
                 }
             }
         });
