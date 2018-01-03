@@ -45,11 +45,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Danh sach", Toast.LENGTH_SHORT).show();
-                finish();
-                overridePendingTransition(0, 0);
+//                finish();
+//                overridePendingTransition(0, 0);
                 startActivity(getIntent());
-                overridePendingTransition(0, 0);
+//                overridePendingTransition(0, 0);
             }
         });
 

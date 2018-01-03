@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void createDatabase() {
         boolean kt = KiemTraDB();
         if (kt) {
-            Toast.makeText(context, "Đã có database", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Đã có database", Toast.LENGTH_SHORT).show();
         } else {
             this.getWritableDatabase();
             copyDatabase();
