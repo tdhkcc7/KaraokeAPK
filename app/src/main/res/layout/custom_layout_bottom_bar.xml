@@ -26,11 +26,11 @@
                 android:layout_height="match_parent" />
             <Button
                 android:textSize="16dp"
-                android:text="Hát Online"
+                android:text="Ghi Âm"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
                 android:backgroundTint="@color/white"
-                android:id="@+id/btnHatOnline"
+                android:id="@+id/btnRecord"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

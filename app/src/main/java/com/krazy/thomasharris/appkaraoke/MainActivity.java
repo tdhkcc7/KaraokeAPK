@@ -1,6 +1,6 @@
 package com.krazy.thomasharris.appkaraoke;
 
-//Hàm maindsdf
+//Hàm maindsdfdsf
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        final Button btnHatOline = (Button) findViewById(R.id.btnHatOnline);
+        final Button btnHatOline = (Button) findViewById(R.id.btnRecord);
         btnHatOline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hat Online", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Record", Toast.LENGTH_SHORT).show();
             }
         });
 
