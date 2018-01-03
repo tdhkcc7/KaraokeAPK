@@ -31,9 +31,17 @@ public class RecordActivity extends AppCompatActivity {
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                overridePendingTransition(0, 0);
-                startActivity(getIntent());
-                overridePendingTransition(0, 0);
+                Intent intent = new Intent(RecordActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button btnfavorite = (Button) findViewById(R.id.btnFavorite);
+        btnfavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecordActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
