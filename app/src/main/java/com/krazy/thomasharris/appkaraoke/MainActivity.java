@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -22,8 +23,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     List<Song> list;
     ListView lvHienThi;
     CustomListView adapter;
-    String _dau_karaoke = "ZSONG_ARIRANG";
+    public static String _dau_karaoke = "ZSONG_ARIRANG";
     String _vol = "vol60";
+    String chuCai="A";
 
     public static String chuoiTimKiem = "";
 
@@ -64,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnfavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _dau_karaoke = "ZFAVORITE";
-                list = db.LayDanhSachBaiHat(_dau_karaoke);
+                list = db.LayDanhSachBaiHatUaThich(_dau_karaoke);
+                adapter.notifyDataSetChanged();
                 setAdapterListView(list);
             }
         });
@@ -299,13 +301,343 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        Button btnAll = (Button) findViewById(R.id.btnAll);
+        final Button btnAll = (Button) findViewById(R.id.btnChuCai);
         btnAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "all", Toast.LENGTH_SHORT).show();
+
+                final Dialog dialogChuCai = new Dialog(MainActivity.this);
+                dialogChuCai.setTitle("Chọn chữ cái");
+                dialogChuCai.setCancelable(true);
+                dialogChuCai.setContentView(R.layout.layout_chu_cai);
+                TextView tvA = (TextView) dialogChuCai.findViewById(R.id.volA);
+                final TextView tvB = (TextView) dialogChuCai.findViewById(R.id.volB);
+                final TextView tvC = (TextView) dialogChuCai.findViewById(R.id.volC);
+                TextView tvD = (TextView) dialogChuCai.findViewById(R.id.D);
+                TextView tvE = (TextView) dialogChuCai.findViewById(R.id.E);
+                TextView tvF = (TextView) dialogChuCai.findViewById(R.id.F);
+                TextView tvG = (TextView) dialogChuCai.findViewById(R.id.G);
+                TextView tvH = (TextView) dialogChuCai.findViewById(R.id.H);
+                TextView tvI = (TextView) dialogChuCai.findViewById(R.id.I);
+                TextView tvJ = (TextView) dialogChuCai.findViewById(R.id.J);
+                TextView tvK = (TextView) dialogChuCai.findViewById(R.id.K);
+                TextView tvL = (TextView) dialogChuCai.findViewById(R.id.L);
+                TextView tvM = (TextView) dialogChuCai.findViewById(R.id.M);
+                TextView tvN = (TextView) dialogChuCai.findViewById(R.id.N);
+                TextView tvO = (TextView) dialogChuCai.findViewById(R.id.O);
+                TextView tvP = (TextView) dialogChuCai.findViewById(R.id.P);
+                TextView tvQ = (TextView) dialogChuCai.findViewById(R.id.Q);
+                TextView tvR = (TextView) dialogChuCai.findViewById(R.id.R);
+                TextView tvS = (TextView) dialogChuCai.findViewById(R.id.S);
+                TextView tvT = (TextView) dialogChuCai.findViewById(R.id.T);
+                TextView tvU = (TextView) dialogChuCai.findViewById(R.id.U);
+                TextView tvV = (TextView) dialogChuCai.findViewById(R.id.V);
+                TextView tvW = (TextView) dialogChuCai.findViewById(R.id.W);
+                TextView tvX = (TextView) dialogChuCai.findViewById(R.id.X);
+                TextView tvY = (TextView) dialogChuCai.findViewById(R.id.Y);
+                TextView tvZ = (TextView) dialogChuCai.findViewById(R.id.Z);
+                TextView tvAll=(TextView) dialogChuCai.findViewById(R.id.AllChuCai);
+                tvAll.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="A";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText("A");
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+                    }
+                });
+                tvA.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        list = db.LayDanhSachBaiHat(_dau_karaoke);
+                        btnAll.setText("Tat ca chu cai");
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+                    }
+                });
+                tvB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="B";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvC.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="C";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvD.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="D";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvE.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="E";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvF.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="F";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvG.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="G";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvH.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="H";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvI.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="I";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvJ.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="J";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvK.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="K";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvL.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="L";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvM.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="M";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvN.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="N";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvO.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="O";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvP.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="P";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvQ.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="Q";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvR.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="R";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvS.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="S";;
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvT.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="T";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvU.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="U";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvV.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="V";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvW.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="W";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvX.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="X";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvY.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="Y";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+                tvZ.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chuCai="Z";
+                        list = db.LayDanhSachBaiHatTheoChuCai(_dau_karaoke, chuCai);
+                        btnAll.setText(chuCai);
+                        setAdapterListView(list);
+                        dialogChuCai.cancel();
+
+                    }
+                });
+
+                dialogChuCai.show();
+
             }
         });
+
     }
 
     private void setAdapterListView(List<Song> list) {

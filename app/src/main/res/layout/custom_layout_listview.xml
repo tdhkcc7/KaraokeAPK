@@ -23,7 +23,7 @@
                 android:textColor="#1884f7"
                 android:textSize="20sp" />
             <ImageView
-                android:id="@+id/imgFavorite"
+                android:id="@+id/imgFav"
                 android:src="@drawable/icon_heart"
                 android:layout_gravity="center"
                 android:layout_width="35dp"

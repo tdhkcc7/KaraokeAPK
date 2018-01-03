@@ -42,7 +42,7 @@
                 android:textColor="@color/colorPrimary"
                 android:backgroundTint="@color/white"
                 android:layout_marginRight="5dp"
-                android:id="@+id/btnAll"
+                android:id="@+id/btnChuCai"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
