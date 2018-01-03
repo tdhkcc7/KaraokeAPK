@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnfavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "My favorite", Toast.LENGTH_SHORT).show();
+                _dau_karaoke = "ZFAVORITE";
+                list = db.LayDanhSachBaiHat(_dau_karaoke);
+                setAdapterListView(list);
             }
         });
     }
