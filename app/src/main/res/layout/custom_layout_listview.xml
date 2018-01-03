@@ -4,27 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
-        <TextView
-            android:id="@+id/tvID"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="TextView"
-            android:textColor="#1884f7"
-            android:textSize="20sp" />
-
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="TextView"
+                android:textColor="#1884f7"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/imgFavorite"
+                android:src="@drawable/icon_heart"
+                android:layout_gravity="center"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_weight="1"
+            android:layout_weight="9"
             android:orientation="vertical">
 
             <TextView
