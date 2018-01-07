@@ -118,7 +118,7 @@ public class RecordActivity extends AppCompatActivity {
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        recorder.setOutputFile("/mnt/sdcard/sample.mp4");
+        recorder.setOutputFile("sample.mp4");
         //recorder.setAudioSamplingRate(16000);
         recorder.prepare();
         recorder.start();
@@ -141,7 +141,7 @@ public class RecordActivity extends AppCompatActivity {
     public void playRecording() throws IOException {
         ditchMediaPlayer();
         mediaPlayer=new MediaPlayer();
-        mediaPlayer.setDataSource("/mnt/sdcard/sample.mp4");
+        mediaPlayer.setDataSource("sample.mp4");
         mediaPlayer.prepare();
         mediaPlayer.start();
     }

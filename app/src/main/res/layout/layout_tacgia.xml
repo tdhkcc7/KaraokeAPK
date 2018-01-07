@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:fillViewport="true">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:text="Danh sách nhạc sĩ"
+                android:id="@+id/dm_casi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_dantruong"
+                    android:text="Sỹ Luân"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_lyhai"
+                    android:text="Lý Hải"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_hoquanghieu"
+                    android:text="Yuki Huy Nam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_duymanh"
+                    android:text="Duy Mạnh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_damvinhhung"
+                    android:text="Đàm Vĩnh Hưng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_hongocha"
+                    android:text="Hồ Ngọc Hà"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_camly"
+                    android:text="Bảo Chinh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/cs_bangkieu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Bằng Kiều"
+                    android:textSize="26dp" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_bangcuong"
+                    android:text="Bằng Cường"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_luongbangquang"
+                    android:text="Lương Bằng Quang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_lamtruong"
+                    android:text="Lam Trường"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/cs_phamtruong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Phạm Trưởng"
+                    android:textSize="26dp" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_khanhdon"
+                    android:text="Khánh Đơn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_trantien"
+                    android:text="Trần Tiến"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_chidan"
+                    android:text="Chi Dân"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="26dp"
+                    android:gravity="center"
+                    android:id="@+id/cs_trinhthangbinh"
+                    android:text="Trịnh Thăng Bình"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

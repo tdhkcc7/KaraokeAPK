@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public static String _dau_karaoke = "ZSONG_ARIRANG";
     public static String _vol = "vol60";
     public static String chuCai="A";
+    public static String _casi="ly hai";
 
     public static String chuoiTimKiem = "";
 
@@ -48,10 +49,402 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                finish();
-                overridePendingTransition(0, 0);
-                startActivity(getIntent());
-                overridePendingTransition(0, 0);
+
+                final Dialog dialogDanhMuc = new Dialog(MainActivity.this);
+                dialogDanhMuc.setTitle("Danh mục");
+                dialogDanhMuc.setCancelable(true);
+                dialogDanhMuc.setContentView(R.layout.layout_danh_muc);
+                TextView tvCaSi = (TextView) dialogDanhMuc.findViewById(R.id.danhuc_casi);
+                TextView tvTacGia = (TextView) dialogDanhMuc.findViewById(R.id.danhmuc_tacgia);
+                TextView tvTrangChu = (TextView) dialogDanhMuc.findViewById(R.id.danhmuc);
+
+                tvTrangChu.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //finish();
+                        overridePendingTransition(0, 0);
+                        startActivity(getIntent());
+                        overridePendingTransition(0, 0);
+                    }
+                });
+
+                tvCaSi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogDanhMuc.setTitle("Danh mục ca sĩ");
+                        dialogDanhMuc.setCancelable(true);
+                        dialogDanhMuc.setContentView(R.layout.layout_casi);
+
+                        final TextView tv_lyhai = (TextView) dialogDanhMuc.findViewById(R.id.cs_lyhai);
+                        TextView tv_hoquanghieu = (TextView) dialogDanhMuc.findViewById(R.id.cs_hoquanghieu);
+                        TextView tv_duymanh = (TextView) dialogDanhMuc.findViewById(R.id.cs_duymanh);
+                        TextView tv_damvinhhung = (TextView) dialogDanhMuc.findViewById(R.id.cs_damvinhhung);
+                        TextView tv_hongocha = (TextView) dialogDanhMuc.findViewById(R.id.cs_hongocha);
+                        TextView tv_camly = (TextView) dialogDanhMuc.findViewById(R.id.cs_camly);
+                        TextView tv_dantruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_dantruong);
+                        TextView tv_bangkieu = (TextView) dialogDanhMuc.findViewById(R.id.cs_bangkieu);
+                        TextView tv_bangcuong = (TextView) dialogDanhMuc.findViewById(R.id.cs_bangcuong);
+                        TextView tv_hkt = (TextView) dialogDanhMuc.findViewById(R.id.cs_luongbangquang);
+                        TextView tv_lamtruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_lamtruong);
+                        TextView tv_phamtruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_phamtruong);
+                        TextView tv_khanhdon = (TextView) dialogDanhMuc.findViewById(R.id.cs_khanhdon);
+                        TextView tv_trantien = (TextView) dialogDanhMuc.findViewById(R.id.cs_trantien);
+                        TextView tv_chidan = (TextView) dialogDanhMuc.findViewById(R.id.cs_chidan);
+                        TextView tv_trinhthangbinh = (TextView) dialogDanhMuc.findViewById(R.id.cs_trinhthangbinh);
+
+                        tv_lyhai.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "ly hai";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hoquanghieu.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "yuki huy nam";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_duymanh.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "duy manh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_damvinhhung.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "dam vinh hung";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hongocha.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "ho ngoc ha";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_camly.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bao chinh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_dantruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "dan truong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_bangkieu.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bang kieu";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_bangcuong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bang cuong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hkt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "luong bang quang";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_lamtruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "lam truong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_phamtruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "pham truong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_khanhdon.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "khanh don";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_trantien.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "tran tien";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_chidan.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "chi dan";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_trinhthangbinh.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "trinh thang binh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        dialogDanhMuc.show();
+                    }
+                });
+
+                tvTacGia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogDanhMuc.setTitle("Danh mục Nhạc sĩ");
+                        dialogDanhMuc.setCancelable(true);
+                        dialogDanhMuc.setContentView(R.layout.layout_tacgia);
+
+                        final TextView tv_lyhai = (TextView) dialogDanhMuc.findViewById(R.id.cs_lyhai);
+                        TextView tv_hoquanghieu = (TextView) dialogDanhMuc.findViewById(R.id.cs_hoquanghieu);
+                        TextView tv_duymanh = (TextView) dialogDanhMuc.findViewById(R.id.cs_duymanh);
+                        TextView tv_damvinhhung = (TextView) dialogDanhMuc.findViewById(R.id.cs_damvinhhung);
+                        TextView tv_hongocha = (TextView) dialogDanhMuc.findViewById(R.id.cs_hongocha);
+                        TextView tv_camly = (TextView) dialogDanhMuc.findViewById(R.id.cs_camly);
+                        TextView tv_dantruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_dantruong);
+                        TextView tv_bangkieu = (TextView) dialogDanhMuc.findViewById(R.id.cs_bangkieu);
+                        TextView tv_bangcuong = (TextView) dialogDanhMuc.findViewById(R.id.cs_bangcuong);
+                        TextView tv_hkt = (TextView) dialogDanhMuc.findViewById(R.id.cs_luongbangquang);
+                        TextView tv_lamtruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_lamtruong);
+                        TextView tv_phamtruong = (TextView) dialogDanhMuc.findViewById(R.id.cs_phamtruong);
+                        TextView tv_khanhdon = (TextView) dialogDanhMuc.findViewById(R.id.cs_khanhdon);
+                        TextView tv_trantien = (TextView) dialogDanhMuc.findViewById(R.id.cs_trantien);
+                        TextView tv_chidan = (TextView) dialogDanhMuc.findViewById(R.id.cs_chidan);
+                        TextView tv_trinhthangbinh = (TextView) dialogDanhMuc.findViewById(R.id.cs_trinhthangbinh);
+
+                        tv_lyhai.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "ly hai";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hoquanghieu.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "yuki huy nam";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_duymanh.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "duy manh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_damvinhhung.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "dam vinh hung";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hongocha.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "ho ngoc ha";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_camly.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bao chinh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_dantruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "sy luan";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_bangkieu.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bang kieu";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_bangcuong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "bang cuong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_hkt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "luong bang quang";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_lamtruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "lam truong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_phamtruong.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "pham truong";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_khanhdon.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "khanh don";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_trantien.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "tran tien";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_chidan.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "chi dan";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        tv_trinhthangbinh.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                _casi = "trinh thang binh";
+                                list = db.LayDanhSachBaiHatTheoCaSi(_dau_karaoke, _casi);
+                                setAdapterListView(list);
+                                dialogDanhMuc.cancel();
+                            }
+                        });
+
+                        dialogDanhMuc.show();
+                    }
+                });
+
+                dialogDanhMuc.show();
             }
         });
 

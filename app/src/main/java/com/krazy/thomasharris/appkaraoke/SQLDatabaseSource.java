@@ -35,8 +35,11 @@ public class SQLDatabaseSource {
                 DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
 
         String truyvan = "Select * From "
-                + dau_karaoke + " Where (("
-                + DatabaseHelper.ZSNAMECLEAN + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZSABBR
+                + dau_karaoke + " Where ((" + DatabaseHelper.ZSNAMECLEAN
+                + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZSABBR
+                + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZSMETACLEAN
+                + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZSLYRICCLEAN
+                + " LIKE '%" + tenbaihat.toLowerCase() + "%' )" + " or (" + DatabaseHelper.ZROWID
                 + " LIKE '%" + tenbaihat.toLowerCase() + "%' ))"
                 + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc ";
         Cursor c = db.rawQuery(truyvan, null);
@@ -295,6 +298,49 @@ public class SQLDatabaseSource {
         ContentValues cv=new ContentValues();
         cv.put(DatabaseHelper.Z_OPT, state);
         db.update(dau_karaoke, cv, DatabaseHelper.Z_PK + " = " +Primary, null);
+    }
+
+    public List<Song> LayDanhSachBaiHatTheoCaSi(String dau_karaoke, String casi) {
+        List<Song> list = new ArrayList<Song>();
+
+        //String[] column = {DatabaseHelper.SONG_ID, DatabaseHelper.SONG_NAME, DatabaseHelper.SONG_NAME2, DatabaseHelper.SONG_LYRIC};
+
+        String[] column = {DatabaseHelper.Z_PK, DatabaseHelper.Z_ENT, DatabaseHelper.Z_OPT,
+                DatabaseHelper.ZROWID, DatabaseHelper.ZSVOL, DatabaseHelper.ZSABBR,
+                DatabaseHelper.ZSLANGUAGE, DatabaseHelper.ZSLYRIC, DatabaseHelper.ZSLYRICCLEAN,
+                DatabaseHelper.ZSMANUFACTURE, DatabaseHelper.ZSMETA, DatabaseHelper.ZSMETACLEAN,
+                DatabaseHelper.ZSNAME, DatabaseHelper.ZSNAMECLEAN, DatabaseHelper.ZYOUTUBE };
+
+        String truyvan = "Select * From "
+                + dau_karaoke + " Where " + DatabaseHelper.ZSMETACLEAN
+                + " LIKE '%" + casi.toLowerCase() + "%' "
+                + " Order by " + DatabaseHelper.ZSLANGUAGE + " desc," + DatabaseHelper.ZSNAME + " asc ";
+        Cursor c = db.rawQuery(truyvan, null);
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            Song item = new Song();
+            item.setPk(c.getString(0));
+            item.setEnt((c.getString(1)));
+            item.setOpt(c.getString(2));
+            item.setRowid(c.getString(3));
+            item.setVol(c.getString(4));
+            item.setAbbr((c.getString(5)));
+            item.setLanguage(c.getString(6));
+            item.setLyric(c.getString(7));
+            item.setLyricclean(c.getString(8));
+            item.setManufacture((c.getString(9)));
+            item.setMeta(c.getString(10));
+            item.setMetaclean(c.getString(11));
+            item.setName(c.getString(12));
+            item.setNameclean((c.getString(13)));
+            item.setYoutube(c.getString(14));
+
+            list.add(item);
+            c.moveToNext();
+        }
+
+        return list;
     }
 }
 
